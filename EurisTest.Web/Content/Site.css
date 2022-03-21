@@ -1,0 +1,41 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.logo {
+    background-image: url(../Images/logo_euris.svg);
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-color: transparent;
+    -moz-background-size: contain;
+    -ms-background-size: contain;
+    -o-background-size: contain;
+    -webkit-background-size: contain;
+    background-size: contain;
+    width: 174px;
+    height: 66px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    margin: 18px 0 0 0 !important /* position:absolute; top:18px; left:0px */;
+}

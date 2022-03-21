@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+
+    <div class="row">
+        <div class="col-md-4"><h1 class="logo negative-text-indent"></h1></div>
+        <div class="col-md-8">
+            <h2>Project Description</h2>
+            <p>
+                The project is designed to manage a list of products and its catalog.
+                <br />The application is developed in ASP.NET, that is:
+            </p>
+            <ul>
+                <li>MVC</li>
+                <li>Entity Framework</li>
+                <li>LINQ</li>
+            </ul>
+        </div>
+    </div>
+ 
+    <h2>Use cases</h2>
+    <p>The application must be developed to meet the following customer needs:</p>
+    <p><strong><u>BASIC REQUEST:</u></strong></p>
+    <ol>
+        <li>The Products must belong to one or more Catalogs;</li>
+        <li>The Product view must contain insert, modify, delete and detail functionality;</li>
+        <li>The Catalog view must contain insert, edit, delete and detail functionality;</li>
+        <li>The Catalog view has the function of selecting products;</li>
+        <li>Manage a data validation model for the Product (the Code and Description fields must be mandatory and with a maximum length of 10 and 50 characters).</li>
+    </ol>
+    <p><strong><u>MEDIUM DIFFICULTY:</u></strong></p>
+    <ol>
+        <li>In a view that presents a drop-down menu of the Catalogs, write a JavaScript that, when the selected Catalog changes, shows an Alert with the Catalog Code.</li>
+    </ol>
+    <p><strong><u>ADVANCED REQUEST:</u></strong></p>
+    <ol>
+        <li>Create a REST API which, given a catalog, returns the list of associated products.</li>
+    </ol>
+</div>
