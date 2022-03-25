@@ -6,6 +6,8 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    @Styles.Render("~/Content/bootstrap-select-css")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -34,9 +36,12 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
+    @RenderSection("modals", false)
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstrap-select-js")
+    @Scripts.Render("~/bundles/main-scripts")
     @RenderSection("scripts", required: false)
 </body>
 </html>

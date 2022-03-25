@@ -1,0 +1,34 @@
+﻿@model EURIS.Model.ViewModels.CatalogViewModel
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Code)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Code)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Description)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Description)
+    </dd>
+
+    @if (Model.Products != null && Model.Products.Any())
+    {
+        <dt>
+            @Html.DisplayNameFor(model => model.Products)
+        </dt>
+
+        foreach (var catalog in Model.Products)
+        {
+            <dd>
+                @catalog.Description - @catalog.Code
+            </dd>
+        }
+    }
+
+</dl>

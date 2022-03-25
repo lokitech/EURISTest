@@ -6,6 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="3f25ed2f88cf4079a0176c1382127898" Name="Diagram1" >
         <EntityTypeShape EntityType="LocalDbModel.Product" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LocalDbModel.Catalog" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="LocalDbModel.CatalogProduct" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="LocalDbModel.FK_CatalogProducts_Catalog" />
+        <AssociationConnector Association="LocalDbModel.FK_CatalogProducts_Product" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

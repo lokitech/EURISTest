@@ -1,0 +1,30 @@
+2022-03-25 00:18:51,211 [9] ERROR EurisTest.Web.Controllers.CatalogController [(null)] - GET: Index()
+System.ArgumentOutOfRangeException: Page must be lower than the total page count (0).
+Parameter name: page
+Actual value was 1.
+   at EURIS.Service.CatalogManager.GetCatalogs(Int32 page, Int32 pageSize) in C:\Users\Loki\Desktop\da\EURISTest_vs2017-v2.0\EURIS.Service\CatalogManager.cs:line 42
+   at EurisTest.Web.Controllers.CatalogController.Index(Int32 page) in C:\Users\Loki\Desktop\da\EURISTest_vs2017-v2.0\EurisTest.Web\Controllers\CatalogController.cs:line 33
+2022-03-25 00:19:20,810 [9] ERROR EurisTest.Web.Controllers.ProductController [(null)] - GET: Index()
+System.ArgumentOutOfRangeException: Page must be lower than the total page count (0).
+Parameter name: page
+Actual value was 1.
+   at EURIS.Service.ProductManager.GetProducts(Int32 page, Int32 pageSize) in C:\Users\Loki\Desktop\da\EURISTest_vs2017-v2.0\EURIS.Service\ProductManager.cs:line 42
+   at EurisTest.Web.Controllers.ProductController.Index(Int32 page) in C:\Users\Loki\Desktop\da\EURISTest_vs2017-v2.0\EurisTest.Web\Controllers\ProductController.cs:line 31
+2022-03-25 00:19:21,888 [9] ERROR EurisTest.Web.Controllers.CatalogController [(null)] - GET: Index()
+System.ArgumentOutOfRangeException: Page must be lower than the total page count (0).
+Parameter name: page
+Actual value was 1.
+   at EURIS.Service.CatalogManager.GetCatalogs(Int32 page, Int32 pageSize) in C:\Users\Loki\Desktop\da\EURISTest_vs2017-v2.0\EURIS.Service\CatalogManager.cs:line 42
+   at EurisTest.Web.Controllers.CatalogController.Index(Int32 page) in C:\Users\Loki\Desktop\da\EURISTest_vs2017-v2.0\EurisTest.Web\Controllers\CatalogController.cs:line 33
+2022-03-25 00:19:49,954 [13] ERROR EurisTest.Web.Controllers.CatalogController [(null)] - GET: Index()
+System.ArgumentOutOfRangeException: Page must be lower than the total page count (0).
+Parameter name: page
+Actual value was 1.
+   at EURIS.Service.CatalogManager.GetCatalogs(Int32 page, Int32 pageSize) in C:\Users\Loki\Desktop\da\EURISTest_vs2017-v2.0\EURIS.Service\CatalogManager.cs:line 42
+   at EurisTest.Web.Controllers.CatalogController.Index(Int32 page) in C:\Users\Loki\Desktop\da\EURISTest_vs2017-v2.0\EurisTest.Web\Controllers\CatalogController.cs:line 33
+2022-03-25 00:19:57,352 [9] ERROR EurisTest.Web.Controllers.ProductController [(null)] - GET: Index()
+System.ArgumentOutOfRangeException: Page must be lower than the total page count (0).
+Parameter name: page
+Actual value was 1.
+   at EURIS.Service.ProductManager.GetProducts(Int32 page, Int32 pageSize) in C:\Users\Loki\Desktop\da\EURISTest_vs2017-v2.0\EURIS.Service\ProductManager.cs:line 42
+   at EurisTest.Web.Controllers.ProductController.Index(Int32 page) in C:\Users\Loki\Desktop\da\EURISTest_vs2017-v2.0\EurisTest.Web\Controllers\ProductController.cs:line 31

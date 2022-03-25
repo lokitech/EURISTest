@@ -24,6 +24,17 @@ namespace EurisTest.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/bootstrap-select-css").Include(
+                      "~/Content/bootstrap-select.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap-select-js").Include(
+                      "~/Scripts/bootstrap-select.js",
+                      "~/Scripts/main-bootstrap-select.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/main-scripts").Include(
+                      "~/Scripts/main-modal.js",
+                      "~/Scripts/main-bootstrap-select.js"));
         }
     }
 }

@@ -1,0 +1,17 @@
+﻿@model EURIS.Model.ViewModels.ProductViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    @{Html.RenderPartial("DetailsPartial", Model);}
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

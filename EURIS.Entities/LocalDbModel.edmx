@@ -5,6 +5,22 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="LocalDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Catalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatalogProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="CatalogId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Id" />
@@ -13,8 +29,42 @@
           <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_CatalogProducts_Catalog">
+          <End Role="Catalog" Type="Self.Catalog" Multiplicity="1" />
+          <End Role="CatalogProduct" Type="Self.CatalogProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CatalogProduct">
+              <PropertyRef Name="CatalogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatalogProducts_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="CatalogProduct" Type="Self.CatalogProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CatalogProduct">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="LocalDbModelStoreContainer">
+          <EntitySet Name="Catalog" EntityType="Self.Catalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogProduct" EntityType="Self.CatalogProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CatalogProducts_Catalog" Association="Self.FK_CatalogProducts_Catalog">
+            <End Role="Catalog" EntitySet="Catalog" />
+            <End Role="CatalogProduct" EntitySet="CatalogProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatalogProducts_Product" Association="Self.FK_CatalogProducts_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="CatalogProduct" EntitySet="CatalogProduct" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -22,6 +72,16 @@
       <Schema Namespace="LocalDbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="LocalDbEntities" p1:LazyLoadingEnabled="true" >
           <EntitySet Name="Product" EntityType="LocalDbModel.Product" />
+          <EntitySet Name="Catalog" EntityType="LocalDbModel.Catalog" />
+          <EntitySet Name="CatalogProduct" EntityType="LocalDbModel.CatalogProduct" />
+          <AssociationSet Name="FK_CatalogProducts_Catalog" Association="LocalDbModel.FK_CatalogProducts_Catalog">
+            <End Role="Catalog" EntitySet="Catalog" />
+            <End Role="CatalogProduct" EntitySet="CatalogProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatalogProducts_Product" Association="LocalDbModel.FK_CatalogProducts_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="CatalogProduct" EntitySet="CatalogProduct" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Product">
           <Key>
@@ -30,7 +90,51 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatalogProduct" Relationship="LocalDbModel.FK_CatalogProducts_Product" FromRole="Product" ToRole="CatalogProduct" />
         </EntityType>
+        <EntityType Name="Catalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CatalogProduct" Relationship="LocalDbModel.FK_CatalogProducts_Catalog" FromRole="Catalog" ToRole="CatalogProduct" />
+        </EntityType>
+        <EntityType Name="CatalogProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="CatalogId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Catalog" Relationship="LocalDbModel.FK_CatalogProducts_Catalog" FromRole="CatalogProduct" ToRole="Catalog" />
+          <NavigationProperty Name="Product" Relationship="LocalDbModel.FK_CatalogProducts_Product" FromRole="CatalogProduct" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_CatalogProducts_Catalog">
+          <End Type="LocalDbModel.Catalog" Role="Catalog" Multiplicity="1" />
+          <End Type="LocalDbModel.CatalogProduct" Role="CatalogProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CatalogProduct">
+              <PropertyRef Name="CatalogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatalogProducts_Product">
+          <End Type="LocalDbModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="LocalDbModel.CatalogProduct" Role="CatalogProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CatalogProduct">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -42,6 +146,24 @@
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Catalog">
+            <EntityTypeMapping TypeName="LocalDbModel.Catalog">
+              <MappingFragment StoreEntitySet="Catalog">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogProduct">
+            <EntityTypeMapping TypeName="LocalDbModel.CatalogProduct">
+              <MappingFragment StoreEntitySet="CatalogProduct">
+                <ScalarProperty Name="CatalogId" ColumnName="CatalogId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

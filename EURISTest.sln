@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EURIS.Service", "EURIS.Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EurisTest.Web", "EurisTest.Web\EurisTest.Web.csproj", "{98F3F665-133E-4856-A1FD-AB37D9E4B79B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EURIS.Model", "EURIS.Model\EURIS.Model.csproj", "{70A7EE68-CF24-43C6-8155-31BEE6301162}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EURIS.Database", "EURIS.Database\EURIS.Database.sqlproj", "{08B2429D-77D3-4EBD-BD50-20E406F83568}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,16 @@ Global
 		{98F3F665-133E-4856-A1FD-AB37D9E4B79B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98F3F665-133E-4856-A1FD-AB37D9E4B79B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98F3F665-133E-4856-A1FD-AB37D9E4B79B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70A7EE68-CF24-43C6-8155-31BEE6301162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70A7EE68-CF24-43C6-8155-31BEE6301162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70A7EE68-CF24-43C6-8155-31BEE6301162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70A7EE68-CF24-43C6-8155-31BEE6301162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08B2429D-77D3-4EBD-BD50-20E406F83568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08B2429D-77D3-4EBD-BD50-20E406F83568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08B2429D-77D3-4EBD-BD50-20E406F83568}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{08B2429D-77D3-4EBD-BD50-20E406F83568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08B2429D-77D3-4EBD-BD50-20E406F83568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08B2429D-77D3-4EBD-BD50-20E406F83568}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
